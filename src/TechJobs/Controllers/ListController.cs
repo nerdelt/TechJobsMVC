@@ -29,6 +29,8 @@ namespace TechJobs.Controllers
 
         public IActionResult Values(string column)
         {
+            ViewBag.column = column;
+
             if (column.Equals("all"))
             {
                 List<Dictionary<string, string>> jobs = JobData.FindAll();
@@ -36,6 +38,7 @@ namespace TechJobs.Controllers
                 ViewBag.jobs = jobs;
                 return View("Jobs");
             }
+
             else
             {
                 List<string> items = JobData.FindAll(column);
@@ -51,6 +54,9 @@ namespace TechJobs.Controllers
             List<Dictionary<String, String>> jobs = JobData.FindByColumnAndValue(column, value);
             ViewBag.title = "Jobs with " + columnChoices[column] + ": " + value;
             ViewBag.jobs = jobs;
+            ViewBag.columns = columnChoices;
+
+
 
             return View();
         }

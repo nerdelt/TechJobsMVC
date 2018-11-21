@@ -73,7 +73,7 @@ namespace TechJobs.Models
             return jobs;
         }
 
-        /**
+        /*
          * Returns results of search the jobs data by key/value, using
          * inclusion of the search term.
          *
